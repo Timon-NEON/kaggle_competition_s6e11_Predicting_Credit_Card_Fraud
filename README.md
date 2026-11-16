@@ -130,11 +130,7 @@ pipenv install --dev      # creates a virtual environment and installs the locke
 pipenv shell              # activate it (type `exit` to leave)
 ```
  
-`pipenv install --dev` installs everything (training, notebooks, local service). The same commands work in PowerShell and in bash. Create the output folders once (they are git-ignored, so they do not exist after cloning):
- 
-```bash
-python -c "from pathlib import Path; [Path(p).mkdir(parents=True, exist_ok=True) for p in ('EDA_and_modeling/models', 'data/solutions')]"
-```
+`pipenv install --dev` installs everything (training, notebooks, local service). The same commands work in PowerShell and in bash.
  
 ### 2. Notebooks (EDA and model selection)
  

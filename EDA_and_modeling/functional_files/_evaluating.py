@@ -1,18 +1,11 @@
 import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import warnings
 import optuna
-warnings.filterwarnings('ignore')
-optuna.logging.set_verbosity(optuna.logging.WARNING)
-sns.set_theme(style='whitegrid', palette='muted')
-plt.rcParams['figure.dpi'] = 100
-
 from sklearn.metrics import roc_auc_score
-
 from sklearn.metrics import PrecisionRecallDisplay, average_precision_score
 import matplotlib.pyplot as plt
+warnings.filterwarnings('ignore')
+optuna.logging.set_verbosity(optuna.logging.WARNING)
 
 print('Evaluating File: Libraries loaded!')
 

@@ -1,10 +1,5 @@
 import pandas as pd
-import warnings
-import optuna
-warnings.filterwarnings('ignore')
-optuna.logging.set_verbosity(optuna.logging.WARNING)
-
-print('Data File: Libraries loaded!')
+from pathlib import Path
 
 PATH_TO_DATA = '../data/'
 
@@ -18,6 +13,7 @@ def get_data(name='1'):
     return Train, Test
 
 def kaggle_solution_import(prediction: pd.Series, name: str):
+    Path(PATH_TO_DATA, 'solutions').mkdir(exist_ok=True)
     test_id = pd.read_csv(PATH_TO_DATA + f'test_orig.csv')['id']
     df_solution = pd.DataFrame(
         {'id': test_id,

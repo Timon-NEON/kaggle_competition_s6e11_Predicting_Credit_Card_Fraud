@@ -1,9 +1,8 @@
+import pickle
+
 import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
 import xgboost as xgb
 from sklearn.feature_extraction import DictVectorizer
-import pickle
 
 # DATA
 DATA_PATH = '../data/'
@@ -27,6 +26,7 @@ print("Data prepared successfully.")
 best_eta = 0.05
 best_max_depth = 6
 best_mcw = 35
+best_num_boost_round = 403
 
 xgb_params = {
         'eta': best_eta,
@@ -39,7 +39,7 @@ xgb_params = {
         'seed': 42,
         'verbosity': 1,
     }
-model = xgb.train(xgb_params, dtrain, num_boost_round=1000)
+model = xgb.train(xgb_params, dtrain, num_boost_round=best_num_boost_round)
 
 with open(MODEL_NAME + '.bin', "wb") as f_out:
     pickle.dump((dv, model), f_out)

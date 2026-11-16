@@ -1,12 +1,11 @@
 import pickle
-from flask import Flask
-from flask import request
-from flask import jsonify
+
 import xgboost as xgb
+from flask import Flask, jsonify, request
 
 
 # Data exporting
-MODEL_FILE = 'deployment/final_model.bin'
+MODEL_FILE = 'final_model.bin'
 THRESHOLD = 0.1
 
 with open(MODEL_FILE, "rb") as f_in:

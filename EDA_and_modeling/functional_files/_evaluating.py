@@ -1,13 +1,6 @@
-import numpy as np
-import warnings
-import optuna
-from sklearn.metrics import roc_auc_score
-from sklearn.metrics import PrecisionRecallDisplay, average_precision_score
 import matplotlib.pyplot as plt
-warnings.filterwarnings('ignore')
-optuna.logging.set_verbosity(optuna.logging.WARNING)
-
-print('Evaluating File: Libraries loaded!')
+import numpy as np
+from sklearn.metrics import PrecisionRecallDisplay, average_precision_score, roc_auc_score
 
 
 def roc_auc(y_val, predicted):

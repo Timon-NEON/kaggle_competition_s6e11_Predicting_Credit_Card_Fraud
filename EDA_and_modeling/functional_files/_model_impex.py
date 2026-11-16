@@ -1,13 +1,8 @@
-import pandas as pd
-import warnings
-import optuna
-from sklearn.feature_extraction import DictVectorizer
-warnings.filterwarnings('ignore')
-optuna.logging.set_verbosity(optuna.logging.WARNING)
-
 import pickle
+from pathlib import Path
 
-print('Model Impex File: Libraries loaded!')
+import pandas as pd
+from sklearn.feature_extraction import DictVectorizer
 
 PATH_TO_MODELS = 'models/'
 
@@ -20,6 +15,7 @@ def dv_transform(dv: DictVectorizer, df: pd.DataFrame):
     return dv.transform(df.to_dict(orient='records'))
 
 def export_model(name: str, dv, model):
+    Path(PATH_TO_MODELS).mkdir(exist_ok=True)
     output_file = PATH_TO_MODELS + f"{name}.bin"
     with open(output_file, 'wb') as f_out:
         pickle.dump((dv, model), f_out)
